@@ -6,12 +6,12 @@ public class MainMenu extends JFrame {
 
     public MainMenu() {
         setTitle("Sistema Academia");
-        setSize(320, 330); // tamanho ajustado para comportar todos os botões
+        setSize(320, 330);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(null);
 
-        // --- BOTÕES ---
+
 
         JButton btnAluno = new JButton("Cadastro de Alunos");
         btnAluno.setBounds(60, 20, 180, 30);
@@ -43,7 +43,6 @@ public class MainMenu extends JFrame {
 
 
 
-        // --- ACTION LISTENERS ---
 
         btnAluno.addActionListener(e -> new AlunoForm().setVisible(true));
 

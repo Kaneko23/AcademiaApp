@@ -5,7 +5,6 @@ import br.com.academia.model.Aluno;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.util.List;
 
 public class AlunoBuscar extends JFrame {

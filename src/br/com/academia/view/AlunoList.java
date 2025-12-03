@@ -19,7 +19,7 @@ public class AlunoList extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // ---------- TABELA ----------
+
         model = new DefaultTableModel(new Object[]{
                 "ID", "Nome", "CPF", "Email", "Telefone", "Plano Atual"
         }, 0);
@@ -28,7 +28,7 @@ public class AlunoList extends JFrame {
         JScrollPane scroll = new JScrollPane(tabela);
         add(scroll, BorderLayout.CENTER);
 
-        // ---------- BOTÕES ----------
+
         JPanel painelBtn = new JPanel();
 
         JButton btnEditar = new JButton("Editar");
@@ -41,7 +41,7 @@ public class AlunoList extends JFrame {
 
         carregarDados();
 
-        // ---------- AÇÕES ----------
+
         btnEditar.addActionListener(e -> editarAluno());
 
         btnExcluir.addActionListener(e -> excluirAluno());

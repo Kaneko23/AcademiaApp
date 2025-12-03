@@ -4,7 +4,6 @@ import br.com.academia.dao.MatriculaDAO;
 import br.com.academia.model.Matricula;
 
 import javax.swing.*;
-import java.awt.*;
 import java.time.LocalDate;
 
 public class MatriculaForm extends JFrame {
@@ -57,7 +56,6 @@ public class MatriculaForm extends JFrame {
         btnSalvar.setBounds(100, 190, 120, 30);
         add(btnSalvar);
 
-        // AÇÃO DO BOTÃO SALVAR
         btnSalvar.addActionListener(e -> {
             try {
                 Matricula m = new Matricula();

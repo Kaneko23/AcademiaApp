@@ -34,7 +34,7 @@ public class PlanoFormEditar extends JFrame {
         add(lblDesc);  add(txtDesc);
         add(btnSalvar);
 
-        // BUSCA O PLANO PELO ID
+
         PlanoDAO dao = new PlanoDAO();
         Plano p = null;
 

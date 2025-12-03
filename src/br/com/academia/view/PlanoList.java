@@ -18,7 +18,10 @@ public class PlanoList extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        model = new DefaultTableModel(new Object[]{"ID", "Nome", "Preço", "Meses", "Descrição"}, 0);
+        model = new DefaultTableModel(
+                new Object[]{"ID", "Nome", "Preço", "Meses", "Descrição"}, 0
+        );
+
         tabela = new JTable(model);
 
         JButton btnEditar = new JButton("Editar");
@@ -47,17 +50,15 @@ public class PlanoList extends JFrame {
             int linha = tabela.getSelectedRow();
             if (linha >= 0) {
                 int id = (int) tabela.getValueAt(linha, 0);
-                PlanoDAO dao = new PlanoDAO();
-                dao.excluir(id);
+                new PlanoDAO().excluir(id);
                 carregar();
                 JOptionPane.showMessageDialog(null, "Plano excluído com sucesso!");
             }
         });
     }
 
-
     private void carregar() {
-        model.setRowCount(0);   // limpa tabela
+        model.setRowCount(0);
         PlanoDAO dao = new PlanoDAO();
 
         for (Plano p : dao.listar()) {
@@ -65,6 +66,7 @@ public class PlanoList extends JFrame {
                     p.getPlanoID(),
                     p.getNomePlano(),
                     p.getValor(),
+                    p.getDuracaoMeses(),
                     p.getDescricao()
             });
         }

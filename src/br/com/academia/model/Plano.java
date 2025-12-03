@@ -6,7 +6,7 @@ public class Plano {
     private String nomePlano;
     private double valor;
     private String descricao;
-    private int duracaoMeses; // novo campo
+    private int duracaoMeses;
 
     public int getPlanoID() {
         return planoID;
@@ -50,6 +50,6 @@ public class Plano {
 
     @Override
     public String toString() {
-        return nomePlano; // usado em combobox
+        return nomePlano;
     }
 }

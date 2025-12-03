@@ -10,7 +10,7 @@ import java.util.List;
 public class PlanoDAO {
 
     public void inserir(Plano plano) {
-        String sql = "INSERT INTO Plano (Nome, Preco, Descricao) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Plano (NomePlano, Preco, DuracaoMeses, Descricao) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = ConnectionFactory.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -37,8 +37,9 @@ public class PlanoDAO {
             while (rs.next()) {
                 Plano p = new Plano();
                 p.setPlanoID(rs.getInt("PlanoID"));
-                p.setNomePlano(rs.getString("Nome"));
+                p.setNomePlano(rs.getString("NomePlano"));
                 p.setValor(rs.getDouble("Preco"));
+                p.setDuracaoMeses(rs.getInt("DuracaoMeses"));
                 p.setDescricao(rs.getString("Descricao"));
                 lista.add(p);
             }
@@ -51,15 +52,16 @@ public class PlanoDAO {
     }
 
     public void atualizar(Plano plano) {
-        String sql = "UPDATE Plano SET Nome=?, Preco=?, Descricao=? WHERE PlanoID=?";
+        String sql = "UPDATE Plano SET NomePlano=?, Preco=?, DuracaoMeses=?, Descricao=? WHERE PlanoID=?";
 
         try (Connection conn = ConnectionFactory.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, plano.getNomePlano());
             stmt.setDouble(2, plano.getValor());
-            stmt.setString(3, plano.getDescricao());
-            stmt.setInt(4, plano.getPlanoID());
+            stmt.setInt(3, plano.getDuracaoMeses());
+            stmt.setString(4, plano.getDescricao());
+            stmt.setInt(5, plano.getPlanoID());
             stmt.executeUpdate();
 
         } catch (Exception e) {
